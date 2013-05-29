@@ -1,0 +1,13 @@
+{
+    "name": "heyday/silverstripe-templatehelpers",
+    "description": "Simple template functionality for Silverstripe",
+    "authors": [
+        {
+            "name": "Stevie Mayhew",
+            "email": "stevie@heyday.co.nz"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "~3.7"
+    }
+}
