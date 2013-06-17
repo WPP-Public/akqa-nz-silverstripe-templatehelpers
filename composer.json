@@ -1,13 +1,14 @@
 {
-    "name": "heyday/silverstripe-templatehelpers",
-    "description": "Simple template functionality for Silverstripe",
-    "authors": [
-        {
-            "name": "Stevie Mayhew",
-            "email": "stevie@heyday.co.nz"
-        }
-    ],
-    "require": {
-        "phpunit/phpunit": "~3.7"
-    }
+	"name": "heyday/silverstripe-templatehelpers",
+	"type": "silverstripe-module",
+	"description": "Simple template functionality for Silverstripe",
+	"authors": [
+		{
+			"name": "Stevie Mayhew",
+			"email": "stevie@heyday.co.nz"
+		}
+	],
+	"require": {
+		"composer/installers": "~1.0"
+	}
 }
