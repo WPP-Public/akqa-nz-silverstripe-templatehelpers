@@ -2,23 +2,23 @@
 
 class TemplateHelpers extends Extension
 {
+    public function isDev()
+    {
+        return Director::isDev();
+    }
 
-	public function isDev()
-	{
-		return Director::isDev();
-	}
+    public function isTest()
+    {
+        return Director::isTest();
+    }
 
-	public function isTest()
-	{
-		return Director::isTest();
-	}
+    public function isLive()
+    {
+        return Director::isLive();
+    }
 
-	public function isLive()
-	{
-		return Director::isLive();
-	}
-
-	public function MetaTags($includeTitle = true) {
+    public function MetaTags($includeTitle = true)
+    {
         $tags = '';
 
         if ($includeTitle === true || $includeTitle == 'true') {
@@ -44,10 +44,13 @@ class TemplateHelpers extends Extension
         return $tags;
     }
 
-    public function addInlineScript($scriptPath = '') {
+    public function addInlineScript($scriptPath = '')
+    {
         $script = THEMES_PATH . DIRECTORY_SEPARATOR . SSViewer::current_theme() . $scriptPath;
-        if ( !file_exists( $script ) ) return '';
-        return file_get_contents( $script );
-    }
+        if (!file_exists($script)) {
+            return '';
+        }
 
+        return file_get_contents($script);
+    }
 }
