@@ -50,7 +50,7 @@ class TemplateHelpers extends Extension
 
     public function addInlineScript($scriptPath = '')
     {
-        $script = THEMES_PATH . DIRECTORY_SEPARATOR . SSViewer::current_theme() . $scriptPath;
+        $script = '../themes/' . SSViewer::current_theme() . DIRECTORY_SEPARATOR . $scriptPath;
         if (!file_exists($script)) {
             return '';
         }
