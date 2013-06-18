@@ -22,24 +22,28 @@ class TemplateHelpers extends Extension
         $tags = '';
 
         if ($includeTitle === true || $includeTitle == 'true') {
-            $tags .= '<title>' . Convert::raw2xml(($this->MetaTitle) ? $this->MetaTitle : $this->Title) . '</title>' . PHP_EOL;
+            $tags .= '<title>' . Convert::raw2xml(
+                    ($this->owner->MetaTitle) ? $this->owner->MetaTitle : $this->owner->Title
+                ) . '</title>' . PHP_EOL;
         }
 
         $tags .= '<meta charset=\'' . ContentNegotiator::get_encoding() . '\' />';
 
-        if ($this->MetaKeywords) {
-            $tags .= '<meta name=\'keywords\' content=\'' . Convert::raw2att($this->MetaKeywords) . '\' />' . PHP_EOL;
+        if ($this->owner->MetaKeywords) {
+            $tags .= '<meta name=\'keywords\' content=\'' . Convert::raw2att(
+                    $this->owner->MetaKeywords
+                ) . '\' />' . PHP_EOL;
         }
 
-        if ($this->MetaDescription) {
-            $tags .= '<meta name=\'description\' content=\'' . Convert::raw2att($this->MetaDescription) . '\' />' . PHP_EOL;
+        if ($this->owner->MetaDescription) {
+            $tags .= '<meta name=\'description\' content=\'' . Convert::raw2att(
+                    $this->owner->MetaDescription
+                ) . '\' />' . PHP_EOL;
         }
 
-        if ($this->ExtraMeta) {
-            $tags .= $this->ExtraMeta . PHP_EOL;
+        if ($this->owner->ExtraMeta) {
+            $tags .= $this->owner->ExtraMeta . PHP_EOL;
         }
-
-        $this->extend('MetaTags', $tags);
 
         return $tags;
     }
