@@ -2,9 +2,11 @@
 
 A library with common functionality required by A-List SilverStripe template developers.
 
+For a SilverStripe `2.4` compatible version see branch `0.1`.
+
 # Installation (with composer)
 
-composer require heyday/silverstripe-templatehelpers:~0.1
+	$ composer require heyday/silverstripe-templatehelpers:~0.1
 
 # Usage
 

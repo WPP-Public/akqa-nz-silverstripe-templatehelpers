@@ -1,22 +1,35 @@
 <?php
 
+/**
+ * Class TemplateHelpers
+ */
 class TemplateHelpers extends Extension
 {
+    /**
+     * @return bool
+     */
     public function isDev()
     {
         return Director::isDev();
     }
-
+    /**
+     * @return bool
+     */
     public function isTest()
     {
         return Director::isTest();
     }
-
+    /**
+     * @return bool
+     */
     public function isLive()
     {
         return Director::isLive();
     }
-
+    /**
+     * @param bool $includeTitle
+     * @return string
+     */
     public function MetaTags($includeTitle = true)
     {
         $tags = '';
@@ -47,12 +60,15 @@ class TemplateHelpers extends Extension
 
         return $tags;
     }
-
+    /**
+     * @param string $scriptPath
+     * @return string
+     */
     public function addInlineScript($scriptPath = '')
     {
-        $script = '../themes/' . SSViewer::current_theme() . DIRECTORY_SEPARATOR . $scriptPath;
+        $script = BASE_PATH . '/themes/' . Config::inst()->get('SSViewer', 'theme') . '/' . $scriptPath;
         if (!file_exists($script)) {
-            return '';
+            return false;
         }
 
         return file_get_contents($script);
