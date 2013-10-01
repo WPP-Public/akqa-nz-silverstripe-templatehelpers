@@ -5,6 +5,11 @@
  */
 class TemplateHelpers implements TemplateGlobalProvider
 {
+    private static $casting = array(
+        'MetaTags' => 'HTMLText',
+        'addInlineScript' => 'HTMLText'
+    );
+
     /**
      * @return array
      */
