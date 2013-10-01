@@ -52,7 +52,7 @@ class TemplateHelpers implements TemplateGlobalProvider
     {
         $tags = '';
 
-        if ($page && $includeTitle === true || $includeTitle == 'true') {
+        if ($page && ($includeTitle === true || $includeTitle == 'true')) {
             $tags .= '<title>' . Convert::raw2xml(
                     ($page->MetaTitle) ? $page->MetaTitle : $page->Title
                 ) . '</title>' . PHP_EOL;
