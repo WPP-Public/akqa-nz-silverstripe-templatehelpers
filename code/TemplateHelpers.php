@@ -20,7 +20,6 @@ class TemplateHelpers implements TemplateGlobalProvider
             'isTest',
             'isLive',
             'addInlineScript',
-            'MetaTags',
             'ThemeDir'
         );
     }
@@ -46,40 +45,6 @@ class TemplateHelpers implements TemplateGlobalProvider
     public static function isLive()
     {
         return Director::isLive();
-    }
-    
-    /**
-     * @param bool     $includeTitle
-     * @param SiteTree $page
-     * @return string
-     */
-    public static function MetaTags($includeTitle = true, SiteTree $page = null)
-    {
-        $tags = '';
-
-        if ($page && ($includeTitle === true || $includeTitle == 'true')) {
-            $tags .= '<title>' . Convert::raw2xml(
-                    ($page->MetaTitle) ? $page->MetaTitle : $page->Title
-                ) . '</title>' . PHP_EOL;
-        }
-
-        $tags .= '<meta charset=\'' . Config::inst()->get('ContentNegotiator', 'encoding') . '\' />';
-        
-        if ($page instanceof SiteTree) {
-    
-            if ($page->MetaDescription) {
-                $tags .= '<meta name=\'description\' content=\'' . Convert::raw2att(
-                        $page->MetaDescription
-                    ) . '\' />' . PHP_EOL;
-            }
-    
-            if ($page->ExtraMeta) {
-                $tags .= $page->ExtraMeta . PHP_EOL;
-            }
-
-        }
-
-        return $tags;
     }
 
     /**
