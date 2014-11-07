@@ -1,21 +1,18 @@
-# silverstripe-templatehelpers
+# SilverStripe template helpers
 
-A library with common functionality required by A-List SilverStripe template developers.
+A library with common functionality used by SilverStripe template developers.
 
 For a SilverStripe `2.4` compatible version see branch `0.1`.
 
 # Installation (with composer)
 
-	$ composer require heyday/silverstripe-templatehelpers:dev-master
+    $ composer require heyday/silverstripe-templatehelpers
 
 # Usage
 
-To add an inline script use a path relative to the theme you are working in
+Once installed, the following functions are available in any .ss template:
 
-```html
-addInlineScript('/js/source/headscript.js');
-```
-
-# Unit testing
-
-None :(
+* **`$isDev`** - If the site is running in a development environment
+* **`$isTest`** - If the site is running in a test environment
+* **`$isLive`** - If the site is running in a production environment
+* **`$addInlineScript('/path/in/theme/directory/file.js')`** - include a javascript file verbatim in the template (note that `<script>` tags aren't generated automatically, so you'll need to add those around this call).
