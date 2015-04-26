@@ -31,7 +31,7 @@ class TemplateHelpers implements TemplateGlobalProvider
     {
         return Director::isDev();
     }
-    
+
     /**
      * @return bool
      */
@@ -60,9 +60,9 @@ class TemplateHelpers implements TemplateGlobalProvider
 
         return file_get_contents($script);
     }
-    
+
     public static function ThemeDir()
     {
-        return '/themes/' . Config::inst()->get('SSViewer', 'theme');
+        return 'themes/' . Config::inst()->get('SSViewer', 'theme');
     }
 }
