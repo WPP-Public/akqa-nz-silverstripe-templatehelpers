@@ -1,0 +1,3 @@
+TemplateHelpers:
+  dev_images: images
+  prod_images: images

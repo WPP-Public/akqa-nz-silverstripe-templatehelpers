@@ -64,21 +64,36 @@ class TemplateHelpers implements TemplateGlobalProvider
 
     public static function ThemeDir()
     {
-        return 'themes/' . Config::inst()->get('SSViewer', 'theme');
+        return SSViewer::get_theme_folder();
     }
 
+    /**
+     * Get an image path for the current environment
+     *
+     * @param string $imageURL - path to append to the path
+     * @return string
+     */
     public static function ImagePath($imageURL)
     {
-        $imagesPath = '/themes/' . Config::inst()->get('SSViewer', 'theme');
-        $dev_path = Config::inst()->forClass('TemplateHelpers')->get('dev_images');
-        $prod_path = Config::inst()->forClass('TemplateHelpers')->get('prod_images');
+        $config = Config::inst()->forClass('TemplateHelpers');
 
         if (Director::isDev()) {
-            $imagesPath = $imagesPath . $dev_path . $imageURL;
+            $imagesPath = $config->get('dev_images');
         } else {
-            $imagesPath = $imagesPath . $prod_path . $imageURL;
+            $imagesPath = $config->get('prod_images');
         }
 
-        return $imagesPath;
+        return self::joinPaths(array(self::ThemeDir(), $imagesPath, $imageURL));
+    }
+
+    /**
+     * Join one or more path components
+     *
+     * @param array $paths
+     * @return string
+     */
+    public static function joinPaths(array $paths)
+    {
+        return preg_replace('#/+#','/', join('/', $paths));
     }
 }
