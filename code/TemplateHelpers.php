@@ -20,7 +20,8 @@ class TemplateHelpers implements TemplateGlobalProvider
             'isTest',
             'isLive',
             'addInlineScript',
-            'ThemeDir'
+            'ThemeDir',
+            'ImagePath'
         );
     }
 
@@ -64,5 +65,20 @@ class TemplateHelpers implements TemplateGlobalProvider
     public static function ThemeDir()
     {
         return 'themes/' . Config::inst()->get('SSViewer', 'theme');
+    }
+
+    public static function ImagePath($imageURL)
+    {
+        $imagesPath = '/themes/' . Config::inst()->get('SSViewer', 'theme');
+        $dev_path = Config::inst()->forClass('TemplateHelpers')->get('dev_images');
+        $prod_path = Config::inst()->forClass('TemplateHelpers')->get('prod_images');
+
+        if (Director::isDev()) {
+            $imagesPath = $imagesPath . $dev_path . $imageURL;
+        } else {
+            $imagesPath = $imagesPath . $prod_path . $imageURL;
+        }
+
+        return $imagesPath;
     }
 }
