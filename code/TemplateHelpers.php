@@ -1,7 +1,18 @@
 <?php
 
+namespace Heyday\TemplateHelpers;
+
+use SilverStripe\Dev\Debug;
+
+use SilverStripe\View\TemplateGlobalProvider;
+use SilverStripe\Control\Director;
+use SilverStripe\View\SSViewer;
+use SilverStripe\Core\Config\Config;
+
+
 /**
  * Class TemplateHelpers
+ * @package Heyday\TemplateHelpers
  */
 class TemplateHelpers implements TemplateGlobalProvider
 {
@@ -54,7 +65,7 @@ class TemplateHelpers implements TemplateGlobalProvider
      */
     public static function addInlineScript($scriptPath = '')
     {
-        $script = BASE_PATH . '/themes/' . Config::inst()->get('SSViewer', 'theme') . '/' . $scriptPath;
+        $script = BASE_PATH . '/themes/' . self::ThemeDir() . '/' . $scriptPath;
         if (!file_exists($script)) {
             return false;
         }
@@ -62,9 +73,13 @@ class TemplateHelpers implements TemplateGlobalProvider
         return file_get_contents($script);
     }
 
+    /**
+     * @return mixed
+     */
     public static function ThemeDir()
     {
-        return SSViewer::get_theme_folder();
+        $themes = SSViewer::get_themes();
+        return $themes[0];
     }
 
     /**
