@@ -77,7 +77,7 @@ class TemplateHelpers implements TemplateGlobalProvider
     public static function ThemeDir()
     {
         $themes = SSViewer::get_themes();
-        return $themes[0];
+        return '/themes/' . $themes[0];
     }
 
     /**
