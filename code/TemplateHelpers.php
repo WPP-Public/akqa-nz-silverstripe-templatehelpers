@@ -2,8 +2,6 @@
 
 namespace Heyday\TemplateHelpers;
 
-use SilverStripe\Dev\Debug;
-
 use SilverStripe\View\TemplateGlobalProvider;
 use SilverStripe\Control\Director;
 use SilverStripe\View\SSViewer;
@@ -90,7 +88,7 @@ class TemplateHelpers implements TemplateGlobalProvider
      */
     public static function ImagePath($imageURL)
     {
-        $config = Config::inst()->forClass('TemplateHelpers');
+        $config = Config::forClass('Heyday\TemplateHelpers\TemplateHelpers');
 
         if (Director::isDev()) {
             $imagesPath = $config->get('dev_images');
