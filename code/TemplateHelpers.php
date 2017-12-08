@@ -63,7 +63,7 @@ class TemplateHelpers implements TemplateGlobalProvider
      */
     public static function addInlineScript($scriptPath = '')
     {
-        $script = BASE_PATH . '/themes/' . self::ThemeDir() . '/' . $scriptPath;
+        $script = BASE_PATH . self::ThemeDir() . '/' . $scriptPath;
         if (!file_exists($script)) {
             return false;
         }
