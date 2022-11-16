@@ -1,14 +1,13 @@
 {
-	"name": "heyday/silverstripe-templatehelpers",
-	"type": "silverstripe-module",
-	"description": "Simple template functionality for Silverstripe",
-	"authors": [
-		{
-			"name": "Stevie Mayhew",
-			"email": "stevie@heyday.co.nz"
-		}
-	],
-	"require": {
-		"composer/installers": "~1.0"
-	}
+    "name": "heyday/silverstripe-templatehelpers",
+    "type": "silverstripe-vendormodule",
+    "description": "Simple template functionality for Silverstripe",
+    "require": {
+        "composer/installers": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Heyday\\TemplateHelpers\\": "src/"
+        }
+    },
 }

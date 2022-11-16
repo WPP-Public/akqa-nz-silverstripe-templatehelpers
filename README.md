@@ -2,11 +2,6 @@
 
 A library with common functionality used by SilverStripe template developers.
 
-Thi smodule is now SilverStripe 4 compatible  
-
-For a SilverStripe `3.*` compatible version see branch `0.2`.
-For a SilverStripe `2.4` compatible version see branch `0.1`.
-
 # Installation (with composer)
 
     $ composer require heyday/silverstripe-templatehelpers

@@ -14,24 +14,24 @@ use SilverStripe\Core\Config\Config;
  */
 class TemplateHelpers implements TemplateGlobalProvider
 {
-    private static $casting = array(
+    private static $casting = [
         'MetaTags' => 'HTMLText',
         'addInlineScript' => 'HTMLText'
-    );
+    ];
 
     /**
      * @return array
      */
     public static function get_template_global_variables()
     {
-        return array(
+        return [
             'isDev',
             'isTest',
             'isLive',
             'addInlineScript',
             'ThemeDir',
             'ImagePath'
-        );
+        ];
     }
 
     /**
