@@ -2,9 +2,12 @@
     "name": "heyday/silverstripe-templatehelpers",
     "type": "silverstripe-vendormodule",
     "description": "Simple template functionality for Silverstripe",
-    "require": {
-        "composer/installers": "~1.0"
-    },
+    "keywords": [
+        "silverstripe",
+        "template"
+    ],
+    "homepage": "https://www.akqa.com",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Heyday\\TemplateHelpers\\": "src/"
